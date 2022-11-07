@@ -14,7 +14,7 @@ func main() {
 	var A obtaining_ingredients.BaseData
 	var a AS
 	A = a
-	data1 := A.GetData()
+	data1 := a.GetData()
 
 }
 
