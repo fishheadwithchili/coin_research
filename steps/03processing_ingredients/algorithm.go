@@ -6,6 +6,6 @@ type Algo interface {
 	// param currentOriginValue: the current origin value before algorithm
 	// return current result after algorithm
 	GetCurrentValueToInt64(previousResults []int64, currentOriginValue int64) int64
+	// GetReferenceCount the count of previous results, return const
+	GetReferenceCount() int
 }
-
-func TT() {}
