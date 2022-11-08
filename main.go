@@ -2,31 +2,14 @@ package main
 
 import (
 	"fmt"
-	"github.com/fishheadwithchili/coin_research/steps/01obtaining_ingredients"
-	"github.com/fishheadwithchili/coin_research/steps/03processing_ingredients"
+	"github.com/fishheadwithchili/coin_research/steps/obtaining_ingredients"
 	"time"
 )
 
 func main() {
-	fmt.Println("start")
-	data := obtaining_ingredients.BaseData.FetchData()
-	algo := processing_ingredients.Algo(data)
-	var A obtaining_ingredients.BaseData
-	var a AS
-	A = a
-	data1 := a.GetData()
-
-}
-
-type AS struct {
-}
-
-func (A AS) FetchData(missions []obtaining_ingredients.Mission, maxDataCount int) (baseData map[time.Time]int) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (A AS) GetData(mission obtaining_ingredients.Mission) (baseData []obtaining_ingredients.Data) {
-	//TODO implement me
-	panic("implement me")
+	var missionOption obtaining_ingredients.MissionOptions
+	mission := obtaining_ingredients.NewMission(missionOption.Default)
+	mission.Set("ETHUSDT", `{'0':'sql','1':'online'}`, 10, 10, time.Now(), time.Now())
+	fmt.Println(mission.ToString())
+	mission.Update()
 }
